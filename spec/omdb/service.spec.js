@@ -26,7 +26,7 @@ describe('omdb service', function(){
         //     }
         // });
 
-        var expectedUrl = 'http://www.omdbapi.com/?v=1&s=star%20wars&apikey=fc1c3f7f';
+        var expectedUrl = 'http://www.omdbapi.com/?v=1&s=star%20wars&apikey=[apiKey]';
 
         $httpBackend.when('GET', expectedUrl)
             .respond(200, movieData);
@@ -54,7 +54,7 @@ describe('omdb service', function(){
 
         var response;
 
-        var expectedUrl = 'http://www.omdbapi.com/?v=1&i=tt0076759&apikey=fc1c3f7f';
+        var expectedUrl = 'http://www.omdbapi.com/?v=1&i=tt0076759&apikey=[apiKey]';
 
         $httpBackend.when('GET', expectedUrl)
             .respond(200, movieDataById);
@@ -74,7 +74,7 @@ describe('omdb service', function(){
 
         var response;
 
-        $httpBackend.expect('GET', 'http://www.omdbapi.com/?v=1&i=tt0076759&apikey=fc1c3f7f')
+        $httpBackend.expect('GET', 'http://www.omdbapi.com/?v=1&i=tt0076759&apikey=[apiKey]')
             .respond(500);
 
         omdbApi.find('tt0076759')
